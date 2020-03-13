@@ -39,3 +39,19 @@
     color: #ffffff;
   }
 }
+
+.active {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $primary;
+  color: #fff;
+  font-size: 13px;
+  line-height: 22px;
+  background: $primary;
+
+  &:not(.noHover):hover {
+    background-color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    color: #ffffff;
+  }
+}
