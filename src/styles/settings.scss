@@ -1,13 +1,67 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+/* START - DO NOT USE THIS VARIABLES IN OTHER FILES*/
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$lightGray: #e1e1e1;
+$lighterGray: #434343;
+$gray: #363636;
+$darkGray: #2a2a2a;
+$nero: #292929;
+$orange: #d58e32;
+$pinkSwan: #b6b6b6;
+$blue: #f4f5f7;
+$white: #ffffff;
+$lightSilver: rgb(216, 216, 216);
+$lightBlue: rgb(224, 227, 237);
+/* END - DO NOT USE THIS VARIABLES IN OTHER FILES*/
 
-$primary: #d58e32;
+/* use only below variables */
+$header-topbar-bg: $lighterGray;
+$header-bg: $gray;
 
-$text-color: #2a2a2a;
+$footer-claim-bg: $darkGray;
+$footer-bg: $gray;
 
-$form-border-color: #292929;
+$primary: $orange;
+
+$button-background: $darkGray;
+$button-outline: $darkGray;
+$button-outline-hover: $white;
+$button-main-hover: $white;
+
+$product-box-border: $lightGray;
+$product-box-photo: $blue;
+$product-box-sale-bg: $nero;
+$product-box-sale: $white;
+$product-box-stars: $nero;
+$product-box-line: $darkGray;
+
+$feature-box: $pinkSwan;
+$feature-box-content: $nero;
+$feature-box-bg: $white;
+$feature-box-icon-wrapper: $white;
+
+$text-color: $darkGray;
+
+$form-border-color: $nero;
+
+$company-claim-photo: $lightSilver;
+$company-claim-cartCounter: $lightBlue;
+$company-claim-cart-box: $white;
+
+$new-furniture-menu: $nero;
+$new-furniture-dots-link-bg: $nero;
+$new-furniture-bg: $white;
+
+$panel-bar: $lightGray;
+
+$menu-bar-bg: $white;
+$menu-bar-link-hover: $white;
+$menu-bar-link-border: $white;
+
+$top-bar-link: $white;
+
+$footer-menu-wrapper-link: $darkGray;
+$social-media-link: $darkGray;
+$footer-copyright: $darkGray; 
+
