@@ -40,24 +40,12 @@ const ProductBox = ({ name, price, promo, stars, image, favorite, compare }) => 
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        {favorite ? (
-          <Button variant='outline' active>
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-          </Button>
-        ) : (
-          <Button variant='outline'>
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-          </Button>
-        )}
-        {compare ? (
-          <Button variant='outline' active>
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-          </Button>
-        ) : (
-          <Button variant='outline'>
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-          </Button>
-        )}
+        <Button variant='outline' active={favorite ? true : undefined}>
+          <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+        </Button>
+        <Button variant='outline' active={compare ? true : undefined}>
+          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+        </Button>
       </div>
       <div className={styles.price}>
         <Button noHover variant='small'>
