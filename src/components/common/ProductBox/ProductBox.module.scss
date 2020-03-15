@@ -92,7 +92,18 @@
   }
 }
 
-<<<<<<< HEAD
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.oldprice {
+  font-size: 13px;
+  padding: 10px;
+  color: #a5a5a5;
+  text-decoration: line-through;
+}
+
 @media not all and (hover:none) {
   .root:hover {
     .photo {
@@ -107,16 +118,3 @@
     }
   }
 }
-=======
-.price {
-  display: flex;
-  align-items: center;
-}
-
-.oldprice {
-  font-size: 13px;
-  padding: 10px;
-  color: #a5a5a5;
-  text-decoration: line-through;
-}
->>>>>>> 3ac6c43fc5fb62cd22dc2bde14e5e58e4b70bf85
