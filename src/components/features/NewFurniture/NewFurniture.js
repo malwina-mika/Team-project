@@ -8,6 +8,7 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    favoriteProducts: [],
   };
 
   handlePageChange(newPage) {
@@ -18,9 +19,15 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
+  handleFavoriteProducts(itemId) {
+    this.setState(prevState => ({
+      favoriteProducts: [...prevState.favoriteProducts, itemId],
+    }));
+  }
+
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, favoriteProducts } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -69,7 +76,11 @@ class NewFurniture extends React.Component {
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
+                <ProductBox
+                  {...item}
+                  onclick={() => this.handleFavoriteProducts(item.id)}
+                  isFavorite={favoriteProducts.indexOf(item.id) !== -1}
+                />
               </div>
             ))}
           </div>
