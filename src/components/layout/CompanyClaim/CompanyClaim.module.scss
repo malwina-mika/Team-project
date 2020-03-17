@@ -8,6 +8,7 @@
   }
 
   .phoneNumber {
+    order: 1;
     p {
       margin: 0;
       font-size: 17px;
@@ -25,7 +26,12 @@
     }
   }
 
+  .img{
+    order:2;
+  }
+
   .cart {
+    order: 3;
     .cartBox {
       display: inline-block;
       position: relative;
@@ -69,4 +75,38 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 767px) {
+  .root {
+
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      .img {
+        height: 100%;
+        order: 2;
+        justify-self: flex-end;
+      }
+    }
+
+    .cart {
+      margin-bottom: -60px;
+      padding-top: 40px;
+      order: 1;
+    }
+
+    .phoneNumber {
+      order: 3;
+      align-self: flex-end;
+      text-align: right!important;
+      padding: 10px 0 20px 0;
+      p {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
 }
