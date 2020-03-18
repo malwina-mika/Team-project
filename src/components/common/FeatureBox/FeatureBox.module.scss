@@ -63,7 +63,9 @@
     }
   }
 
+  &:hover,
   &.active {
+
     .iconWrapper {
       color: $feature-box-icon-wrapper;
 
@@ -76,5 +78,14 @@
     .content {
       color: $primary;
     }
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
+
+
+
