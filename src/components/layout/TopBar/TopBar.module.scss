@@ -40,3 +40,17 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .root {
+    .topOptions {
+      padding-right: 0;
+      ul li{
+        margin-right: 0.5rem;
+      }
+    }
+    .topMenu{
+      padding-left: 0;
+    }
+  }
+}
