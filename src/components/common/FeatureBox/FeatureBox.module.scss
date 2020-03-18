@@ -4,6 +4,7 @@
   border: 1px solid $feature-box;
   text-align: center;
   margin-top: 40px;
+  min-height: 142px;
 
   .iconWrapper {
     height: 60px;
@@ -51,6 +52,7 @@
     margin-top: -0.5rem;
     letter-spacing: 1px;
     font-weight: 300;
+    min-height: 72px;
 
     h5 {
       font-weight: 600;
