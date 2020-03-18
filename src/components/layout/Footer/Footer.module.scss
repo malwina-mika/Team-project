@@ -16,6 +16,7 @@
         margin: 0 0 1.5rem 0;
         padding: 0;
         list-style: none;
+        display: block;
         li {
           a {
             font-size: 14px;
@@ -49,6 +50,7 @@
     }
 
     .copyright {
+      text-align: center;
       p {
         margin: 0;
         color: $footer-copyright;
@@ -76,6 +78,19 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .root {
+    .bottomBar {
+      div div div:first-child {
+        text-align: center;
+      }
+      .copyright {
+        text-align: start;
       }
     }
   }
