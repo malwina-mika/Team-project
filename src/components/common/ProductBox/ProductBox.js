@@ -67,6 +67,7 @@ ProductBox.propTypes = {
   image: PropTypes.string,
   favorite: PropTypes.bool,
   compare: PropTypes.bool,
+  onclick: PropTypes.func
 };
 
 export default ProductBox;

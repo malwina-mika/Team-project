@@ -8,6 +8,7 @@ const Button = ({
   variant,
   noHover,
   active,
+  favoriteClass,
   className: propClassName,
   ...props
 }) => {
@@ -28,6 +29,7 @@ const Button = ({
   if (active) {
     classes.push(styles.active);
   }
+  if (favoriteClass) classes.push(styles[favoriteClass]);
 
   return (
     <Comp href='#' {...props} className={classes.join(' ')}>
@@ -42,6 +44,7 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   active: PropTypes.bool,
+  favoriteClass: PropTypes.string,
 };
 
 export default Button;
