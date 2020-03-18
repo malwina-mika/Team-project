@@ -49,12 +49,10 @@ const ProductBox = ({
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button favoriteClass={isFavorite ? 'favorite' : ''} variant='outline'>
-          <FontAwesomeIcon icon={faHeart} onClick={onclick}>
-            Favorite{' '}
-          </FontAwesomeIcon>
+        <Button variant='outline' active={favorite ? true : undefined}>
+          <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button variant='outline' active={compare ? true : undefined}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
@@ -76,8 +74,9 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   image: PropTypes.string,
-  onclick: PropTypes.func,
-  isFavorite: PropTypes.bool,
+  favorite: PropTypes.bool,
+  compare: PropTypes.bool,
+  onclick: PropTypes.func
 };
 
 export default ProductBox;
