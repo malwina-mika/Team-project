@@ -63,7 +63,14 @@ $menu-bar-link-border: $white;
 
 $top-bar-link: $white;
 
-$footer-menu-wrapper-link: $darkGray;
-$social-media-link: $darkGray;
-$footer-copyright: $darkGray; 
+$footer-menu-wrapper-link: $lightSilver;
+$social-media-link: $lightSilver;
+$footer-copyright: $lightSilver; 
 
+$transition: 2.5s;
+
+.hover {
+    background: $orange;
+    color: $white;
+    text-decoration: none;
+}

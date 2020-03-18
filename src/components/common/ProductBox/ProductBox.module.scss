@@ -64,6 +64,11 @@
       a {
         text-decoration: none;
         color: $product-box-stars;
+        transition: $transition;
+
+        &:hover {
+          color: $primary;
+        }
       }
     }
   }

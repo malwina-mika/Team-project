@@ -13,6 +13,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: $transition;
 
     .icon {
       position: relative;
@@ -43,6 +44,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       border: 1px solid $feature-box;
+      transition: $transition;
     }
   }
 
@@ -53,13 +55,11 @@
     letter-spacing: 1px;
     font-weight: 300;
     min-height: 72px;
+    transition: $transition;
 
     h5 {
       font-weight: 600;
       margin: 0;
-    }
-
-    p {
     }
   }
 
