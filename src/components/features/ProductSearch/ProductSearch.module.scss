@@ -47,6 +47,7 @@
   .searchField {
     display: flex;
     align-items: center;
+    width: 100%;
     position: relative;
 
     input {
@@ -64,6 +65,8 @@
       border: 0;
       background-color: transparent;
       outline: none;
+      position: absolute;
+      right: 10px;
     }
   }
 }
@@ -142,3 +145,27 @@ ul {
     }
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px)  {
+  .root{
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .root{
+    width: 90vw;
+    margin: 10px 15px 15px;
+    .menuItem{
+      display: none;
+    }
+    .category{
+      min-width: 60px;
+    }
+    
+  }
+  .hidden{
+    display: none!important;
+  }
+}
+
