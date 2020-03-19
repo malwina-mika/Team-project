@@ -19,7 +19,9 @@ const ProductBox = ({
   stars,
   image,
   onclick,
+  onclick2,
   isFavorite,
+  isCompare,
   compare,
   oldPrice,
 }) => (
@@ -51,13 +53,21 @@ const ProductBox = ({
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline' favoriteClass={isFavorite ? 'favorite' : ''}>
+        <Button
+          variant='outline'
+          favoriteClass={isFavorite ? 'favorite' : ''}
+          active={compare ? true : undefined}
+        >
           <FontAwesomeIcon icon={faHeart} onClick={onclick}>
             Favorite{' '}
           </FontAwesomeIcon>
         </Button>
-        <Button variant='outline' active={compare ? true : undefined}>
-          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+        <Button
+          variant='outline'
+          addToCompareClass={isCompare ? 'addToCompare' : ''}
+          onClick={onclick2}
+        >
+          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare </FontAwesomeIcon>
         </Button>
       </div>
       <div className={styles.price}>
@@ -79,8 +89,10 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   image: PropTypes.string,
   isFavorite: PropTypes.bool,
+  isCompare: PropTypes.bool,
   compare: PropTypes.bool,
   onclick: PropTypes.func,
+  onclick2: PropTypes.func,
 };
 
 export default ProductBox;

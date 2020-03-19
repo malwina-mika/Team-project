@@ -11,6 +11,7 @@ class NewFurniture extends React.Component {
     activePage: 0,
     activeCategory: 'bed',
     favoriteProducts: [],
+    compareProducts: [],
   };
 
   handlePageChange(newPage) {
@@ -28,9 +29,21 @@ class NewFurniture extends React.Component {
     }));
   }
 
+  handleCompareProducts(itemId) {
+    console.log('compare clicked');
+    this.setState(prevState => ({
+      compareProducts: [...prevState.compareProducts, itemId],
+    }));
+  }
+
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage, favoriteProducts } = this.state;
+    const {
+      activeCategory,
+      activePage,
+      favoriteProducts,
+      compareProducts,
+    } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -91,7 +104,9 @@ class NewFurniture extends React.Component {
                 <ProductBox
                   {...item}
                   onclick={() => this.handleFavoriteProducts(item.id)}
+                  onclick2={() => this.handleCompareProducts(item.id)}
                   isFavorite={favoriteProducts.indexOf(item.id) !== -1}
+                  isCompare={compareProducts.indexOf(item.id) !== -1}
                 />
               </div>
             ))}
