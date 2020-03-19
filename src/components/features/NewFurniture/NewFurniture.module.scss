@@ -48,9 +48,19 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              width: 100%;
+              border-bottom: 4px solid $panel-bar;
+              transition: $transition;
+            }
 
             &.active,
             &:hover {
+              cursor: pointer;
               &::before {
                 content: "";
                 position: absolute;
@@ -88,6 +98,8 @@
             border-radius: 6px;
             background-color: $new-furniture-dots-link-bg;
             font-size: 0;
+            transition: $transition;
+            cursor: pointer;
 
             &.active,
             &:hover {
