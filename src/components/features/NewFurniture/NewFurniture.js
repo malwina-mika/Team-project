@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-// import { Swipeable } from 'react-swipeable';
+//import { Swipeable } from 'react-swipeable';
 import Swipe from '../../common/Swipe/Swipe';
 
 class NewFurniture extends React.Component {
@@ -22,6 +22,7 @@ class NewFurniture extends React.Component {
   }
 
   handleFavoriteProducts(itemId) {
+    console.log('favorite clicked');
     this.setState(prevState => ({
       favoriteProducts: [...prevState.favoriteProducts, itemId],
     }));
