@@ -104,7 +104,10 @@ class NewFurniture extends React.Component {
                 <ProductBox
                   {...item}
                   onclick={() => this.handleFavoriteProducts(item.id)}
-                  onclick2={() => this.handleCompareProducts(item.id)}
+                  onclick2={e => {
+                    e.preventDefault();
+                    this.handleCompareProducts(item.id);
+                  }}
                   isFavorite={favoriteProducts.indexOf(item.id) !== -1}
                   isCompare={compareProducts.indexOf(item.id) !== -1}
                 />
