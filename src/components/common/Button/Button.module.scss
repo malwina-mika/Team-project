@@ -10,11 +10,10 @@
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  transition: $transition;
 
   &:not(.noHover):hover {
-    color: $button-main-hover !important;
-    background-color: $primary;
-    text-decoration: none;
+    @extend .hover;
   }
 }
 
@@ -33,14 +32,29 @@
   color: $button-outline;
   font-size: 13px;
   line-height: 22px;
+  transition: $transition;
 
   &:not(.noHover):hover {
-    background-color: $button-outline;
-    color: $button-outline-hover;
+    @extend .hover;
   }
 }
 
-.favorite {
-  background-color: $button-outline;
-  color: $button-outline-hover;
+.active {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $primary;
+  color: #fff;
+  font-size: 13px;
+  line-height: 22px;
+  background: $primary;
+
+  &:not(.noHover):hover {
+    background-color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    color: #ffffff;
+  }
 }
+  .favorite {
+    background-color: $primary;
+    color: $button-outline-hover;
+  }

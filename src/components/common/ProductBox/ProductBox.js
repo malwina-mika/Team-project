@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -19,6 +20,7 @@ const ProductBox = ({
   image,
   onclick,
   isFavorite,
+  compare,
   oldPrice,
 }) => (
   <div className={styles.root}>
@@ -49,12 +51,12 @@ const ProductBox = ({
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button favoriteClass={isFavorite ? 'favorite' : ''} variant='outline'>
+        <Button variant='outline' favoriteClass={isFavorite ? 'favorite' : ''}>
           <FontAwesomeIcon icon={faHeart} onClick={onclick}>
             Favorite{' '}
           </FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button variant='outline' active={compare ? true : undefined}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
@@ -76,8 +78,9 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   image: PropTypes.string,
-  onclick: PropTypes.func,
   isFavorite: PropTypes.bool,
+  compare: PropTypes.bool,
+  onclick: PropTypes.func,
 };
 
 export default ProductBox;

@@ -15,6 +15,7 @@
       a {
         color: $top-bar-link;
         font-size: 13px;
+        transition: $transition;
 
         &:hover {
           color: $primary;
@@ -37,6 +38,20 @@
 
     .icon {
       margin-right: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .root {
+    .topOptions {
+      padding-right: 0;
+      ul li{
+        margin-right: 0.5rem;
+      }
+    }
+    .topMenu{
+      padding-left: 0;
     }
   }
 }

@@ -7,6 +7,7 @@ const Button = ({
   children,
   variant,
   noHover,
+  active,
   favoriteClass,
   className: propClassName,
   ...props
@@ -25,6 +26,9 @@ const Button = ({
     Comp = 'div';
   }
 
+  if (active) {
+    classes.push(styles.active);
+  }
   if (favoriteClass) classes.push(styles[favoriteClass]);
 
   return (
@@ -39,6 +43,7 @@ Button.propTypes = {
   noHover: PropTypes.bool,
   className: PropTypes.string,
   variant: PropTypes.string,
+  active: PropTypes.bool,
   favoriteClass: PropTypes.string,
 };
 
