@@ -40,6 +40,7 @@
 
     .buttons {
       display: flex;
+      visibility: hidden;
       justify-content: space-between;
 
       a {
@@ -63,6 +64,11 @@
       a {
         text-decoration: none;
         color: $product-box-stars;
+        transition: $transition;
+
+        &:hover {
+          color: $primary;
+        }
       }
     }
   }
@@ -91,6 +97,20 @@
   }
 }
 
+@media not all and (hover:none) {
+  .root:hover {
+    .photo {
+      .buttons {
+         visibility: visible;
+      }
+    }
+    .actions {
+      div:last-child {
+        background-color: $primary;
+      }
+    }
+  }
+}
 .price {
   display: flex;
   align-items: center;

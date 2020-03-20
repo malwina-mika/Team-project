@@ -21,6 +21,7 @@
             font-size: 14px;
             line-height: 30px;
             color: $footer-menu-wrapper-link;
+            transition: $transition;
 
             &:hover {
               color: $white;
@@ -70,6 +71,7 @@
           a {
             color: $social-media-link;
             text-decoration: none;
+            transition: $transition;
 
             &:hover {
               color: $primary;
