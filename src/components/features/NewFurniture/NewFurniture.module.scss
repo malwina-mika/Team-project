@@ -111,3 +111,14 @@
     }
   }
 }
+
+.fadein {
+  opacity: 1;
+  transition: 1s;
+}
+
+.fadeout {
+  opacity: 0;
+  transition: 1s;
+}
+
