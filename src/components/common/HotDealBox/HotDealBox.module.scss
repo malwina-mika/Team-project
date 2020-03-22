@@ -1,0 +1,224 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $white;
+  border: 1px solid $product-box-border;
+  // margin-bottom: 2rem;
+
+  .photo {
+    position: relative;
+    padding: 80% 10px 0 10px;
+    background: {
+      color: $product-box-photo;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    align-items: flex-end;
+
+    &:hover .cover{
+      visibility: visible;
+    }
+
+    .cover {
+      visibility: hidden;
+      > a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0;
+        }
+      .meter {
+        position: absolute;
+        bottom: .5em;
+        left: 0;
+        width: 100%;
+
+        ul {
+          margin: 0;
+          padding: 0 0 0 0;
+          list-style: none;
+  
+          li {
+            display: inline-block;
+            margin-left: .5em;
+  
+            a {
+              display: block;
+              width: 3.5em;
+              height: 3.5em;
+              border-radius: 50%;
+              background-color: $button-background;
+              font-size: 1em;
+              // transition: $transition;
+              cursor: pointer;
+              text-align: center;
+              padding-top: .5em;
+
+              p {
+                color: $light-color;
+                margin: 0;
+                font-weight: 500;
+                line-height: 1em;
+                text-transform: uppercase;
+                &:first-child {
+                  font-size: 1.5em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+    .bar {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // width: 100%;
+      padding: 0 1em;
+      line-height: 2em;
+      background-color: $product-box-sale-bg;
+      color: $product-box-sale;
+      z-index: 2;
+      
+        p {
+          text-transform: uppercase;
+          margin-top: 13px;
+        }
+    }
+
+    .dots {
+        position: absolute;
+        right: 0;
+  
+        ul {
+          margin: 0;
+          padding: 0 0 0 0;
+          list-style: none;
+          // background-color: $new-furniture-bg;
+          transform: translateY(15px);
+  
+          li {
+            display: inline-block;
+            margin-left: 0.5rem;
+  
+            a {
+              display: block;
+              width: 13px;
+              height: 13px;
+              border-radius: 6px;
+              background-color: $new-furniture-bg;
+              font-size: 0;
+              transition: $transition;
+              cursor: pointer;
+  
+              &.active,
+              &:hover {
+                background-color: $primary;
+              }
+            }
+          }
+        }
+      }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buttons {
+      display: flex;
+      visibility: hidden;
+      justify-content: space-between;
+
+      a {
+        z-index: 2;
+      }
+    }
+  // }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: $product-box-stars;
+        transition: $transition;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .line {
+    margin: 0 10px;
+    border-bottom: 1px solid $darkGray;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a:nth-of-type(2) {
+      margin: 0 2px;
+    }
+  }
+}
+
+@media not all and (hover:none) {
+  .root:hover {
+    .photo {
+      .buttons {
+         visibility: visible;
+      }
+    }
+    .actions {
+      div:last-child {
+        background-color: $primary;
+      }
+    }
+  }
+}
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.oldprice {
+  font-size: 13px;
+  padding: 10px;
+  color: #a5a5a5;
+  text-decoration: line-through;
+}
