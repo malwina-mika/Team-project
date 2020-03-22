@@ -57,7 +57,12 @@ class NewFurniture extends React.Component {
     const { activeCategory, activePage, favoriteProducts, deviceType } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount =
+      deviceType === 'mobile'
+        ? Math.ceil(categoryProducts.length / 2)
+        : deviceType === 'tablet'
+        ? Math.ceil(categoryProducts.length / 3)
+        : Math.ceil(categoryProducts.length / 8);
     const productsCount = deviceType === 'mobile' ? 2 : deviceType === 'tablet' ? 3 : 8;
 
     const dots = [];
