@@ -10,7 +10,6 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    favoriteProducts: [],
     deviceType: 'mobile',
     fade: true,
   };
@@ -51,10 +50,9 @@ class NewFurniture extends React.Component {
     }, 1000);
   }
 
-  handleFavoriteProducts(itemId) {
-    this.setState(prevState => ({
-      favoriteProducts: [...prevState.favoriteProducts, itemId],
-    }));
+  handleFavoriteProducts(event, itemId) {
+    event.preventDefault();
+    this.props.handleFavoriteProducts(itemId);
   }
 
   handleFade() {
@@ -70,8 +68,7 @@ class NewFurniture extends React.Component {
   render() {
     const { categories, products } = this.props;
 
-    const { activeCategory, activePage, favoriteProducts, deviceType, fade } = this.state;
-
+    const { activeCategory, activePage, deviceType, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount =
@@ -146,8 +143,8 @@ class NewFurniture extends React.Component {
                    <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
                     <ProductBox
                       {...item}
-                      onclick={() => this.handleFavoriteProducts(item.id)}
-                      isFavorite={favoriteProducts.indexOf(item.id) !== -1}
+                      onclick={e => this.handleFavoriteProducts(e, item.id)}
+                      isFavorite={item.favorite}
                     />
                   </div>
                 ))}
@@ -178,6 +175,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  handleFavoriteProducts: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
