@@ -53,9 +53,9 @@
       }
 
       .cartCounter {
-        width: 70px;
+        width: 40px;
         height: 27px;
-        border-radius: 14px;
+        border-radius: 17px;
         background-color: $header-bg;
         display: flex;
         align-items: center;
@@ -63,7 +63,7 @@
         color: $company-claim-cartCounter;
         position: absolute;
         top: 50%;
-        left: 10px;
+        left: 20px;
         padding: 0 0 0 10px;
         transform: translate(50%, -50%);
       }

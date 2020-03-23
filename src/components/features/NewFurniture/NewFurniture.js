@@ -62,10 +62,10 @@ class NewFurniture extends React.Component {
           <div className='container'>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
+                <div className={'col-7 col-md-2 ' + styles.heading}>
                   <h3>New furniture</h3>
                 </div>
-                <div className={'col ' + styles.menu}>
+                <div className={'col-12 col-md-8 ' + styles.menu}>
                   <ul>
                     {categories.map(item => (
                       <li key={item.id}>
@@ -79,22 +79,24 @@ class NewFurniture extends React.Component {
                     ))}
                   </ul>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
+                <div className={'col-12 col-md-2 ' + styles.dots}>
                   <ul>{dots}</ul>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox
-                  {...item}
-                  onclick={() => this.handleFavoriteProducts(item.id)}
-                  isFavorite={favoriteProducts.indexOf(item.id) !== -1}
-                />
-              </div>
-            ))}
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
+                    <ProductBox
+                      {...item}
+                      onclick={() => this.handleFavoriteProducts(item.id)}
+                      isFavorite={favoriteProducts.indexOf(item.id) !== -1}
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </Swipe>
