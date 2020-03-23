@@ -11,6 +11,7 @@ class NewFurniture extends React.Component {
     activePage: 0,
     activeCategory: 'bed',
     deviceType: 'mobile',
+    fade: true,
   };
 
   componentDidMount() {
@@ -38,11 +39,15 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    setTimeout(() => {
+      this.setState({ activePage: newPage });
+    }, 1000);
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    setTimeout(() => {
+      this.setState({ activeCategory: newCategory });
+    }, 1000);
   }
 
   handleFavoriteProducts(event, itemId) {
@@ -50,19 +55,39 @@ class NewFurniture extends React.Component {
     this.props.handleFavoriteProducts(itemId);
   }
 
+  handleFade() {
+    this.setState({ fade: false });
+
+    setTimeout(() => {
+      this.setState({
+        fade: true,
+      });
+    }, 1000);
+  }
+
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+
+    const { activeCategory, activePage, deviceType, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount =
+      deviceType === 'mobile'
+        ? Math.ceil(categoryProducts.length / 2)
+        : deviceType === 'tablet'
+        ? Math.ceil(categoryProducts.length / 3)
+        : Math.ceil(categoryProducts.length / 8);
+    const productsCount = deviceType === 'mobile' ? 2 : deviceType === 'tablet' ? 3 : 8;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
         <li>
           <a
-            onClick={() => this.handlePageChange(i)}
+            onClick={() => {
+              this.handlePageChange(i);
+              this.handleFade();
+            }}
             className={i === activePage && styles.active}
           >
             page {i}
@@ -93,7 +118,10 @@ class NewFurniture extends React.Component {
                       <li key={item.id}>
                         <a
                           className={item.id === activeCategory && styles.active}
-                          onClick={() => this.handleCategoryChange(item.id)}
+                          onClick={() => {
+                            this.handleCategoryChange(item.id);
+                            this.handleFade();
+                          }}
                         >
                           {item.name}
                         </a>
@@ -107,16 +135,20 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox
-                  {...item}
-                  onclick={e => this.handleFavoriteProducts(e, item.id)}
-                  isFavorite={item.favorite}
-                />
-              </div>
-            ))}
+          <div className={fade ? styles.fadein : styles.fadeout}>
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * productsCount, (activePage + 1) * productsCount)
+                .map(item => (
+                  <div key={item.id} className='col-3'>
+                    <ProductBox
+                      {...item}
+                      onclick={e => this.handleFavoriteProducts(e, item.id)}
+                      isFavorite={item.favorite}
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </Swipe>

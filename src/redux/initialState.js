@@ -10,7 +10,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-1',
       name: 'Aenean Ru Bristique 1',
-      category: 'bed',
+      category: 'sofa',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -21,7 +21,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-2',
       name: 'Aenean Ru Bristique 2',
-      category: 'bed',
+      category: 'sofa',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -47,7 +47,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-4',
       name: 'Aenean Ru Bristique 4',
-      category: 'bed',
+      category: 'chair',
       price: 30,
       oldPrice: 40,
       stars: 2,
@@ -59,7 +59,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-5',
       name: 'Aenean Ru Bristique 5',
-      category: 'bed',
+      category: 'chair',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -70,7 +70,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-6',
       name: 'Aenean Ru Bristique 6',
-      category: 'bed',
+      category: 'sofa',
       price: 30,
       oldPrice: 45,
       stars: 2,
@@ -82,7 +82,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-7',
       name: 'Aenean Ru Bristique 7',
-      category: 'bed',
+      category: 'table',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -93,7 +93,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-8',
       name: 'Aenean Ru Bristique 8',
-      category: 'bed',
+      category: 'dining',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -137,7 +137,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-12',
       name: 'Aenean Ru Bristique 12',
-      category: 'bed',
+      category: 'table',
       price: 30,
       stars: 2,
       promo: 'sale',
@@ -148,7 +148,7 @@ const initialState = {
     {
       id: 'aenean-ru-bristique-13',
       name: 'Aenean Ru Bristique 13',
-      category: 'bed',
+      category: 'table',
       price: 30,
       stars: 2,
       promo: 'sale',
