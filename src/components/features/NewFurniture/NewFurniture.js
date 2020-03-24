@@ -10,8 +10,32 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    favoriteProducts: [],
+    deviceType: 'mobile',
     fade: true,
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    const width = window.innerWidth;
+    let type = 'mobile';
+    if (width <= 768) {
+      type = 'mobile';
+    }
+    if (width > 768 && width <= 1024) {
+      type = 'tablet';
+    }
+    if (width > 1024) {
+      type = 'desktop';
+    }
+    this.setState({ deviceType: type });
   };
 
   handlePageChange(newPage) {
@@ -26,11 +50,9 @@ class NewFurniture extends React.Component {
     }, 1000);
   }
 
-  handleFavoriteProducts(itemId) {
-    console.log('favorite clicked');
-    this.setState(prevState => ({
-      favoriteProducts: [...prevState.favoriteProducts, itemId],
-    }));
+  handleFavoriteProducts(event, itemId) {
+    event.preventDefault();
+    this.props.handleFavoriteProducts(itemId);
   }
 
   handleFade() {
@@ -45,10 +67,17 @@ class NewFurniture extends React.Component {
 
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage, favoriteProducts, fade } = this.state;
+
+    const { activeCategory, activePage, deviceType, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount =
+      deviceType === 'mobile'
+        ? Math.ceil(categoryProducts.length / 2)
+        : deviceType === 'tablet'
+        ? Math.ceil(categoryProducts.length / 3)
+        : Math.ceil(categoryProducts.length / 8);
+    const productsCount = deviceType === 'mobile' ? 2 : deviceType === 'tablet' ? 3 : 8;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -80,10 +109,10 @@ class NewFurniture extends React.Component {
           <div className='container'>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
+                <div className={'col-7 col-md-2 ' + styles.heading}>
                   <h3>New furniture</h3>
                 </div>
-                <div className={'col ' + styles.menu}>
+                <div className={'col-12 col-md-8 ' + styles.menu}>
                   <ul>
                     {categories.map(item => (
                       <li key={item.id}>
@@ -100,7 +129,7 @@ class NewFurniture extends React.Component {
                     ))}
                   </ul>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
+                <div className={'col-12 col-md-2 ' + styles.dots}>
                   <ul>{dots}</ul>
                 </div>
               </div>
@@ -109,13 +138,13 @@ class NewFurniture extends React.Component {
           <div className={fade ? styles.fadein : styles.fadeout}>
             <div className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * productsCount, (activePage + 1) * productsCount)
                 .map(item => (
-                  <div key={item.id} className='col-3'>
+                   <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
                     <ProductBox
                       {...item}
-                      onclick={() => this.handleFavoriteProducts(item.id)}
-                      isFavorite={favoriteProducts.indexOf(item.id) !== -1}
+                      onclick={e => this.handleFavoriteProducts(e, item.id)}
+                      isFavorite={item.favorite}
                     />
                   </div>
                 ))}
@@ -146,6 +175,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  handleFavoriteProducts: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
