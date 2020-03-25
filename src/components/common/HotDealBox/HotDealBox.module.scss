@@ -76,10 +76,6 @@
   }
 
     .bar {
-      // position: absolute;
-      // top: 0;
-      // left: 0;
-      // width: 100%;
       padding: 0 1em;
       line-height: 2em;
       background-color: $product-box-sale-bg;
@@ -100,7 +96,6 @@
           margin: 0;
           padding: 0 0 0 0;
           list-style: none;
-          // background-color: $new-furniture-bg;
           transform: translateY(15px);
   
           li {
@@ -144,7 +139,6 @@
         z-index: 2;
       }
     }
-  // }
 
   .content {
     text-align: center;
@@ -162,10 +156,6 @@
         text-decoration: none;
         color: $product-box-stars;
         transition: $transition;
-
-        &:hover {
-          color: $primary;
-        }
       }
     }
   }
@@ -205,11 +195,20 @@
          visibility: visible;
       }
     }
-    // .actions {
-    //   div:last-child {
-    //     background-color: $primary;
-    //   }
-    // }
+
+    .content {
+      .stars {
+        a:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    .actions {
+      div:last-child {
+        background-color: $primary;
+      }
+    }
   }
 }
 .price {

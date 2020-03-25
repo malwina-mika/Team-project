@@ -104,25 +104,12 @@
          visibility: visible;
       }
     }
+
     .actions {
       div:last-child {
         background-color: $primary;
       }
     }
-  }
-}
-
-.content3:hover {
-  .cover {
-    visibility: visible;
-  }
-  .photo {
-    .buttons {
-      visibility: hidden;
-    }
-    // &:hover {
-    //   opacity: .5;
-    // }
   }
 }
 
