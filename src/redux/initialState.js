@@ -287,6 +287,12 @@ const initialState = {
   compare: {
     products: [],
   },
+
+  promotionLeftBox: '<h3>Guest Room</h3><h3>Sofa</h3><h3>-20%</h3>',
+  promotionRightBoxOne:
+    '<h3><span>Office</span>Chair</h3><h3>collection</h3><h3>$ 200.00</h3>',
+  promotionRightBoxTwo:
+    '<h3><span>Special</span> collection</h3><h3>save up 45% of furniture</h3>',
 };
 
 export default initialState;
