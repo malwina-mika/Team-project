@@ -17,7 +17,7 @@ const ProductBox = ({
   review,
   image,
   onclick,
-  onclick2,
+  compareProduct,
   isFavorite,
   isCompare,
   compare,
@@ -54,8 +54,8 @@ const ProductBox = ({
         </Button>
         <Button
           variant='outline'
-          addToCompareClass={isCompare ? 'addToCompare' : ''}
-          onClick={onclick2}
+          CompareClass={isCompare ? 'addCompare' : ''}
+          onClick={compareProduct}
         >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare </FontAwesomeIcon>
         </Button>
@@ -83,7 +83,7 @@ ProductBox.propTypes = {
   isCompare: PropTypes.bool,
   compare: PropTypes.bool,
   onclick: PropTypes.func,
-  onclick2: PropTypes.func,
+  compareProduct: PropTypes.func,
 };
 
 export default ProductBox;

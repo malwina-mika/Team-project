@@ -9,7 +9,7 @@ const Button = ({
   noHover,
   active,
   favoriteClass,
-  addToCompareClass,
+  CompareClass,
   className: propClassName,
   ...props
 }) => {
@@ -32,7 +32,7 @@ const Button = ({
   }
   if (favoriteClass) classes.push(styles[favoriteClass]);
 
-  if (addToCompareClass) classes.push(styles[addToCompareClass]);
+  if (CompareClass) classes.push(styles[CompareClass]);
 
   return (
     <Comp href='#' {...props} className={classes.join(' ')}>
@@ -48,7 +48,7 @@ Button.propTypes = {
   variant: PropTypes.string,
   active: PropTypes.bool,
   favoriteClass: PropTypes.string,
-  addToCompareClass: PropTypes.string,
+  CompareClass: PropTypes.string,
 };
 
 export default Button;

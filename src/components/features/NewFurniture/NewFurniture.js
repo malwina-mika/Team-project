@@ -12,6 +12,7 @@ class NewFurniture extends React.Component {
     activeCategory: 'bed',
     deviceType: 'mobile',
     fade: true,
+    itemsNumber: [],
   };
 
   componentDidMount() {
@@ -65,11 +66,24 @@ class NewFurniture extends React.Component {
     }, 1000);
   }
 
-  handleCompareProducts(itemId) {
-    console.log('compare clicked');
-    this.setState(prevState => ({
-      compareProducts: [...prevState.compareProducts, itemId],
-    }));
+  handleCompareProducts(event, itemId) {
+    event.preventDefault();
+    this.props.actionCompareProducts(itemId);
+  }
+
+  handleNumber(itemId) {
+    if (this.state.itemsNumber.includes(itemId)) {
+      // this.state.itemsNumber = this.state.itemsNumber.filter(item => item !== itemId);
+      this.setState({
+        itemsNumber: this.state.itemsNumber.filter(item => item !== itemId),
+      });
+    } else {
+      // this.state.itemsNumber.push(itemId);
+      this.setState({
+        itemsNumber: this.state.itemsNumber.push(itemId),
+      });
+    }
+    console.log(this.state.itemsNumber);
   }
 
   render() {
@@ -151,7 +165,12 @@ class NewFurniture extends React.Component {
                     <ProductBox
                       {...item}
                       onclick={e => this.handleFavoriteProducts(e, item.id)}
+                      compareProduct={e => {
+                        this.handleCompareProducts(e, item.id);
+                        this.handleNumber(item.id);
+                      }}
                       isFavorite={item.favorite}
+                      isCompare={item.addCompare}
                     />
                   </div>
                 ))}
@@ -183,6 +202,7 @@ NewFurniture.propTypes = {
     })
   ),
   handleFavoriteProducts: PropTypes.func,
+  actionCompareProducts: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
