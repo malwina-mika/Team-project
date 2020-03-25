@@ -6,26 +6,25 @@ import styles from './HotDealBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEye,
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Stars from '../Stars/Stars';
 
 class HotDealBox extends React.Component {
   render() {
     const {
       name,
       price,
-      promo,
       stars,
       image,
       onclick,
       isFavorite,
       compare,
       oldPrice,
-      children,
+      review,
     } = this.props;
 
     const dots = [];
@@ -33,6 +32,20 @@ class HotDealBox extends React.Component {
       dots.push(
         <li key={'dot_' + i}>
           <a className={i === 0 && styles.active}>page {i}</a>
+        </li>
+      );
+    }
+
+    const meter = [];
+    const mockupData = ['DAYS', 'HRS', 'MINS', 'SECS'];
+    for (let i = 0; i < 4; i++) {
+      meter.push(
+        <li key={'meter_' + i}>
+          <a>
+            {mockupData[i]}
+            <br></br>
+            {(i + 1) * 2}
+          </a>
         </li>
       );
     }
@@ -58,47 +71,14 @@ class HotDealBox extends React.Component {
               <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
             </Button>
             <div className={styles.meter}>
-              <ul>
-                <li>
-                  <a>
-                    <p>25</p>
-                    <p>days</p>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <p>10</p>
-                    <p>hrs</p>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <p>45</p>
-                    <p>mins</p>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <p>30</p>
-                    <p>secs</p>
-                  </a>
-                </li>
-              </ul>
+              <ul>{meter}</ul>
             </div>
           </div>
         </div>
         <div className={styles.content}>
           <h5>{name}</h5>
           <div className={styles.stars}>
-            {[1, 2, 3, 4, 5].map(i => (
-              <a key={i} href='#'>
-                {i <= stars ? (
-                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                ) : (
-                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                )}
-              </a>
-            ))}
+            <Stars stars={stars} review={review} />
           </div>
         </div>
         <div className={styles.line}></div>
@@ -139,6 +119,7 @@ HotDealBox.propTypes = {
   isFavorite: PropTypes.bool,
   compare: PropTypes.bool,
   onclick: PropTypes.func,
+  review: PropTypes.number,
 };
 
 export default HotDealBox;

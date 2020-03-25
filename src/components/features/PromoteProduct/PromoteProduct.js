@@ -8,15 +8,43 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 class PromoteProduct extends React.Component {
+  state = {
+    id: 'aenean-ru-bristique-4',
+  };
+
+  handleFavoriteProducts(event, itemId) {
+    event.preventDefault();
+    this.props.handleFavoriteProducts(itemId);
+  }
+
   render() {
     const { products } = this.props;
+    const { id } = this.state;
+    const promote = products.filter(item => item.id === id);
+
+    const dots = [];
+    for (let i = 0; i < 3; i++) {
+      dots.push(
+        <li key={'dot_' + i}>
+          <a className={i === 0 && styles.active}>page {i}</a>
+        </li>
+      );
+    }
 
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-4'>
-              <HotDealBox {...products[3]} className={styles.setOfButtons}></HotDealBox>
+            <div className={'col-4 ' + styles.hotDeal}>
+              {promote.map(item => (
+                <HotDealBox
+                  key={item.id}
+                  promo=''
+                  {...item}
+                  onclick={e => this.handleFavoriteProducts(e, item.id)}
+                  isFavorite={item.favorite}
+                ></HotDealBox>
+              ))}
             </div>
             <div className='col-8'>
               <div className={styles.offer}>
@@ -62,6 +90,7 @@ PromoteProduct.propTypes = {
       image: PropTypes.string,
     })
   ),
+  handleFavoriteProducts: PropTypes.func,
 };
 
 export default PromoteProduct;

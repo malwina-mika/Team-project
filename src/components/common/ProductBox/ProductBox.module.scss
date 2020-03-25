@@ -111,6 +111,21 @@
     }
   }
 }
+
+.content3:hover {
+  .cover {
+    visibility: visible;
+  }
+  .photo {
+    .buttons {
+      visibility: hidden;
+    }
+    // &:hover {
+    //   opacity: .5;
+    // }
+  }
+}
+
 .price {
   display: flex;
   align-items: center;
