@@ -111,3 +111,41 @@
     }
   }
 }
+
+.fadein {
+  opacity: 1;
+  transition: 1s;
+}
+
+.fadeout {
+  opacity: 0;
+  transition: 1s;
+}
+
+@media screen and (max-width: 767px) {
+  .root {
+    .panelBar {
+      .heading{
+        order: 1;
+      }
+      .menu {
+        order:2;
+        margin: 15px 10px 10px 0;
+        ul {
+          flex-wrap: nowrap;
+          
+        }
+      }
+      .dots{
+        position: relative;
+        order: 7;
+        bottom:50px;
+        li {
+          margin: 5px;
+        }
+      
+      }
+    }
+  }
+}    
+

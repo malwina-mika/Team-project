@@ -119,7 +119,7 @@ ul {
     width: 10em;
     text-align: center;
     z-index: 2;
-    background-color: $light-color;
+    background-color: $white;
   }
 }
 
@@ -133,7 +133,7 @@ ul {
         &:hover {
           background-color: $primary;
           > a {
-            color: $light-color;
+            color: $white;
           }
           > .subMenu {
             padding-top: 0;
@@ -146,16 +146,11 @@ ul {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px)  {
-  .root{
-    margin-left: 15px;
-  }
-}
 
 @media screen and (max-width: 767px) {
   .root{
     width: 90vw;
-    margin: 10px 15px 15px;
+   margin-top: 5px;
     .menuItem{
       display: none;
     }
@@ -168,4 +163,5 @@ ul {
     display: none!important;
   }
 }
+
 
