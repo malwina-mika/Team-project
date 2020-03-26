@@ -13,6 +13,7 @@ class NewFurniture extends React.Component {
     deviceType: 'mobile',
     fade: true,
     itemsNumber: [],
+    // itemId: '',
   };
 
   componentDidMount() {
@@ -73,15 +74,24 @@ class NewFurniture extends React.Component {
 
   handleNumber(itemId) {
     if (this.state.itemsNumber.includes(itemId)) {
-      // this.state.itemsNumber = this.state.itemsNumber.filter(item => item !== itemId);
-      this.setState({
-        itemsNumber: this.state.itemsNumber.filter(item => item !== itemId),
+      this.setState(state => {
+        const itemsNumber = state.itemsNumber.filter(i => itemId !== i);
+
+        return {
+          itemsNumber,
+        };
+      });
+    }
+    if (this.state.itemsNumber.length <= 2) {
+      this.setState(state => {
+        const itemsNumber = state.itemsNumber.concat(itemId);
+
+        return {
+          itemsNumber,
+        };
       });
     } else {
-      // this.state.itemsNumber.push(itemId);
-      this.setState({
-        itemsNumber: this.state.itemsNumber.push(itemId),
-      });
+      console.log('full');
     }
     console.log(this.state.itemsNumber);
   }
