@@ -1,0 +1,31 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  padding: 5rem 0;
+
+  .brandsWrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 25px 0 25px 0;
+      border-top: 1px solid $brands-border;
+      border-bottom: 1px solid $brands-border;
+
+      .brands {
+          flex: 90% 0;
+          display: flex;
+          justify-content: space-between;
+      }
+
+      button {
+          flex: 3% 0;
+          background: $brands-button-bg;
+          border: none;
+          color: $brands-button-icon;
+          font-size: 12px;
+
+          &:hover {
+              background-color: $brands-button-icon-hover;
+          }
+      }
+   }
+}
