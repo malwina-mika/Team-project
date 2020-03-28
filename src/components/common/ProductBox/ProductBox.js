@@ -41,10 +41,12 @@ const ProductBox = ({
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline' favoriteClass={isFavorite ? 'favorite' : ''}>
-          <FontAwesomeIcon icon={faHeart} onClick={onclick}>
-            Favorite{' '}
-          </FontAwesomeIcon>
+        <Button
+          onClick={onclick}
+          variant='outline'
+          favoriteClass={isFavorite ? 'favorite' : ''}
+        >
+          <FontAwesomeIcon icon={faHeart}>Favorite </FontAwesomeIcon>
         </Button>
         <Button variant='outline' active={compare ? true : undefined}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>

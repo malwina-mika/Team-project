@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-//import { Swipeable } from 'react-swipeable';
 import Swipe from '../../common/Swipe/Swipe';
 
 class NewFurniture extends React.Component {
@@ -140,7 +139,7 @@ class NewFurniture extends React.Component {
               {categoryProducts
                 .slice(activePage * productsCount, (activePage + 1) * productsCount)
                 .map(item => (
-                   <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
+                  <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
                     <ProductBox
                       {...item}
                       onclick={e => this.handleFavoriteProducts(e, item.id)}
