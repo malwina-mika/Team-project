@@ -29,7 +29,6 @@ const initialState = {
       image: '/images/furniture-2.jpg',
       compare: true,
       favorite: false,
-
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -57,6 +56,7 @@ const initialState = {
       newFurniture: true,
       image: '/images/furniture-4.jpg',
       favorite: false,
+      promote: true,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -284,6 +284,16 @@ const initialState = {
   cart: {
     products: [],
   },
+  offers: [
+    {
+      id: 'offer-1',
+      name: 'Aenean Ru Bristique 20',
+      image: '/images/furniture-2.jpg',
+      title: 'indoor <strong>furniture</strong>',
+      subtitle: 'save up to 50% of all furniture',
+      active: true,
+    },
+  ],
   compare: {
     products: [],
   },
