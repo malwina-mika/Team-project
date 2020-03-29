@@ -5,6 +5,7 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 //import { Swipeable } from 'react-swipeable';
 import Swipe from '../../common/Swipe/Swipe';
+// import CompareBox from '../CompareBox/CompareBox';
 
 class NewFurniture extends React.Component {
   state = {
@@ -72,34 +73,12 @@ class NewFurniture extends React.Component {
     this.props.actionCompareProducts(itemId);
   }
 
-  handleNumber(itemId) {
-    if (this.state.itemsNumber.includes(itemId)) {
-      this.setState(state => {
-        const itemsNumber = state.itemsNumber.filter(i => itemId !== i);
-
-        return {
-          itemsNumber,
-        };
-      });
-    }
-    if (this.state.itemsNumber.length <= 2) {
-      this.setState(state => {
-        const itemsNumber = state.itemsNumber.concat(itemId);
-
-        return {
-          itemsNumber,
-        };
-      });
-    } else {
-      console.log('full');
-    }
-    console.log(this.state.itemsNumber);
-  }
-
   render() {
     const { categories, products } = this.props;
 
     const { activeCategory, activePage, deviceType, fade } = this.state;
+
+    const toCompare = products.filter(item => item.addCompare === true);
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount =
@@ -177,7 +156,7 @@ class NewFurniture extends React.Component {
                       onclick={e => this.handleFavoriteProducts(e, item.id)}
                       compareProduct={e => {
                         this.handleCompareProducts(e, item.id);
-                        this.handleNumber(item.id);
+                        console.log(toCompare);
                       }}
                       isFavorite={item.favorite}
                       isCompare={item.addCompare}
@@ -209,6 +188,7 @@ NewFurniture.propTypes = {
       stars: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
+      addCompare: PropTypes.bool,
     })
   ),
   handleFavoriteProducts: PropTypes.func,
