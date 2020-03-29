@@ -49,6 +49,7 @@
   transition: $transition;
 
   &:not(.noHover):hover {
+    border: 1px solid $primary;
     background: none;
     color: $primary;
     text-decoration: none;

@@ -133,20 +133,20 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-          <div className={fade ? styles.fadein : styles.fadeout}>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * productsCount, (activePage + 1) * productsCount)
-                .map(item => (
-                  <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
-                    <ProductBox
-                      {...item}
-                      onclick={e => this.handleFavoriteProducts(e, item.id)}
-                      isFavorite={item.favorite}
-                    />
-                  </div>
-                ))}
+            <div className={fade ? styles.fadein : styles.fadeout}>
+              <div className='row'>
+                {categoryProducts
+                  .slice(activePage * productsCount, (activePage + 1) * productsCount)
+                  .map(item => (
+                    <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
+                      <ProductBox
+                        {...item}
+                        onclick={e => this.handleFavoriteProducts(e, item.id)}
+                        isFavorite={item.favorite}
+                      />
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </div>

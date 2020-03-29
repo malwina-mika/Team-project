@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import Stars from '../../common/Stars/Stars';
+import ReactTooltip from 'react-tooltip';
 
 class Gallery extends React.Component {
   state = {
@@ -89,18 +90,52 @@ class Gallery extends React.Component {
                         variant='outlineTwo'
                         onClick={e => this.handleFavoriteProducts(e, product.id)}
                         favoriteClass={product.favorite ? 'favorite' : ''}
+                        data-tip='Add to favorite'
+                        data-for='favorite'
                       >
+                        <ReactTooltip
+                          place='right'
+                          id='favorite'
+                          className={styles.tooltip}
+                        ></ReactTooltip>
                         <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
                       </Button>
-                      <Button variant='outlineTwo'>
+                      <Button
+                        variant='outlineTwo'
+                        data-tip='Compare'
+                        data-for='compare'
+                      >
+                        <ReactTooltip
+                          place='right'
+                          id='compare'
+                          className={styles.tooltip}
+                        ></ReactTooltip>
                         <FontAwesomeIcon icon={faExchangeAlt}>
                           <span>Compare</span>
                         </FontAwesomeIcon>
                       </Button>
-                      <Button variant='outlineTwo'>
-                        <FontAwesomeIcon icon={faEye}>View details</FontAwesomeIcon>
+                      <Button
+                        variant='outlineTwo'
+                        data-tip='Quick view'
+                        data-for='view'
+                      >
+                        <ReactTooltip
+                          place='right'
+                          id='view'
+                          className={styles.tooltip}
+                        ></ReactTooltip>
+                        <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
                       </Button>
-                      <Button variant='outlineTwo'>
+                      <Button
+                        variant='outlineTwo'
+                        data-tip='Add to cart'
+                        data-for='cart'
+                      >
+                        <ReactTooltip
+                          place='right'
+                          id='cart'
+                          className={styles.tooltip}
+                        ></ReactTooltip>
                         <FontAwesomeIcon icon={faShoppingBasket}>
                           Add to cart
                         </FontAwesomeIcon>
