@@ -25,6 +25,8 @@ class HotDealBox extends React.Component {
       compare,
       oldPrice,
       review,
+      isCompare,
+      compareProduct,
     } = this.props;
 
     const dots = [];
@@ -92,7 +94,12 @@ class HotDealBox extends React.Component {
                 Favorite{' '}
               </FontAwesomeIcon>
             </Button>
-            <Button variant='outline' active={compare ? true : undefined}>
+            <Button
+              variant='outline'
+              active={compare ? true : undefined}
+              CompareClass={isCompare ? 'addCompare' : ''}
+              onClick={compareProduct}
+            >
               <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
             </Button>
           </div>
@@ -120,6 +127,8 @@ HotDealBox.propTypes = {
   compare: PropTypes.bool,
   onclick: PropTypes.func,
   review: PropTypes.number,
+  isCompare: PropTypes.bool,
+  compareProduct: PropTypes.func,
 };
 
 export default HotDealBox;

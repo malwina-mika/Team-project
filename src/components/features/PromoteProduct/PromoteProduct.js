@@ -10,6 +10,11 @@ class PromoteProduct extends React.Component {
     this.props.handleFavoriteProducts(itemId);
   }
 
+  handleCompareProducts(event, itemId) {
+    event.preventDefault();
+    this.props.actionCompareProducts(itemId);
+  }
+
   render() {
     const { products, offers } = this.props;
     // const { id } = this.state;
@@ -36,7 +41,11 @@ class PromoteProduct extends React.Component {
                   promo=''
                   {...item}
                   onclick={e => this.handleFavoriteProducts(e, item.id)}
+                  compareProduct={e => {
+                    this.handleCompareProducts(e, item.id);
+                  }}
                   isFavorite={item.favorite}
+                  isCompare={item.addCompare}
                 ></HotDealBox>
               ))}
             </div>
@@ -75,6 +84,7 @@ PromoteProduct.propTypes = {
   ),
 
   handleFavoriteProducts: PropTypes.func,
+  actionCompareProducts: PropTypes.func,
 };
 
 export default PromoteProduct;
