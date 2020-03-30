@@ -56,6 +56,7 @@ const initialState = {
       newFurniture: true,
       image: '/images/furniture-4.jpg',
       favorite: false,
+      promote: true,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -140,7 +141,8 @@ const initialState = {
       id: 'aenean-ru-bristique-12',
       name: 'Aenean Ru Bristique 12',
       category: 'table',
-      price: 30,
+      price: 300,
+      oldPrice: 400,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -151,11 +153,12 @@ const initialState = {
       id: 'aenean-ru-bristique-13',
       name: 'Aenean Ru Bristique 13',
       category: 'table',
-      price: 30,
+      price: 400,
+      oldPrice: 550,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      image: '/images/furniture-1.jpg',
+      image: '/images/furniture-11.jpg',
       favorite: false,
     },
     {
@@ -166,7 +169,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      image: '/images/furniture-2.jpg',
+      image: '/images/furniture-12.jpg',
       favorite: false,
     },
     {
@@ -177,7 +180,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      image: '/images/furniture-3.jpg',
+      image: '/images/furniture-13.jpg',
       favorite: false,
     },
     {
@@ -283,6 +286,16 @@ const initialState = {
   cart: {
     products: [],
   },
+  offers: [
+    {
+      id: 'offer-1',
+      name: 'Aenean Ru Bristique 20',
+      image: '/images/furniture-2.jpg',
+      title: 'indoor <strong>furniture</strong>',
+      subtitle: 'save up to 50% of all furniture',
+      active: true,
+    },
+  ],
   compare: {
     products: [],
   },
@@ -367,6 +380,9 @@ const initialState = {
       image: '/images/brands/brand-2.jpg',
     },
   ],
+
+  galleryRightBox: '<h6>from<span>$50.80</span></h6><h2>Bedroom Bed</h2>',
+
 };
 
 export default initialState;
