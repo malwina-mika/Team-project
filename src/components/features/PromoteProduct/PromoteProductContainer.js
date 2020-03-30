@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 
 import PromoteProduct from './PromoteProduct';
 
-import { getAll, handleFavoriteProducts } from '../../../redux/productsRedux';
+import {
+  getAll,
+  handleFavoriteProducts,
+  actionCompareProducts,
+} from '../../../redux/productsRedux';
 import { getOffers } from '../../../redux/offerRedux';
 
 const mapStateToProps = state => ({
@@ -13,6 +17,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleFavoriteProducts: id => dispatch(handleFavoriteProducts(id)),
+  actionCompareProducts: id => dispatch(actionCompareProducts(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PromoteProduct);

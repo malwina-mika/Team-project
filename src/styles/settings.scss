@@ -4,6 +4,7 @@ $base-padding: 24px;
 
 $lightGray: #e1e1e1;
 $lighterGray: #434343;
+$darkerGray: #cbcbcb;
 $gray: #363636;
 $darkGray: #2a2a2a;
 $darkGrayTransparent: rgba(42, 42, 42, .5);
@@ -71,6 +72,11 @@ $top-bar-link: $white;
 $footer-menu-wrapper-link: $lightSilver;
 $social-media-link: $lightSilver;
 $footer-copyright: $lightSilver; 
+
+$brands-border: $darkerGray;
+$brands-button-bg: $nero;
+$brands-button-icon: $white;
+$brands-button-icon-hover: $primary;
 
 $transition: 2.5s;
 

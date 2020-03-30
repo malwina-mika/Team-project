@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipe from '../../common/Swipe/Swipe';
+// import CompareBox from '../CompareBox/CompareBox';
 
 class NewFurniture extends React.Component {
   state = {
@@ -11,6 +12,8 @@ class NewFurniture extends React.Component {
     activeCategory: 'bed',
     deviceType: 'mobile',
     fade: true,
+    itemsNumber: [],
+    // itemId: '',
   };
 
   componentDidMount() {
@@ -64,12 +67,19 @@ class NewFurniture extends React.Component {
     }, 1000);
   }
 
+  handleCompareProducts(event, itemId) {
+    event.preventDefault();
+    this.props.actionCompareProducts(itemId);
+  }
+
   render() {
     const { categories, products } = this.props;
 
     const { activeCategory, activePage, deviceType, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
+    const compareProducts = products.filter(item => item.addCompare === true);
+
     const pagesCount =
       deviceType === 'mobile'
         ? Math.ceil(categoryProducts.length / 2)
@@ -133,20 +143,28 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-            <div className={fade ? styles.fadein : styles.fadeout}>
-              <div className='row'>
-                {categoryProducts
-                  .slice(activePage * productsCount, (activePage + 1) * productsCount)
-                  .map(item => (
-                    <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
-                      <ProductBox
-                        {...item}
-                        onclick={e => this.handleFavoriteProducts(e, item.id)}
-                        isFavorite={item.favorite}
-                      />
-                    </div>
-                  ))}
-              </div>
+          </div>
+          <div className={fade ? styles.fadein : styles.fadeout}>
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * productsCount, (activePage + 1) * productsCount)
+                .map(item => (
+                  <div key={item.id} className='col-sm-6 col-md-4 col-xl-3'>
+                    <ProductBox
+                      {...item}
+                      onclick={e => this.handleFavoriteProducts(e, item.id)}
+                      compareProduct={
+                        compareProducts.length < 4
+                          ? e => {
+                              this.handleCompareProducts(e, item.id);
+                            }
+                          : null
+                      }
+                      isFavorite={item.favorite}
+                      isCompare={item.addCompare}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -172,9 +190,11 @@ NewFurniture.propTypes = {
       stars: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
+      addCompare: PropTypes.bool,
     })
   ),
   handleFavoriteProducts: PropTypes.func,
+  actionCompareProducts: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
