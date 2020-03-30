@@ -36,11 +36,17 @@ class Gallery extends React.Component {
 
   handleAmountOfImg = () => {
     const width = window.innerWidth;
-    let number = 7;
-    if (width <= 650) {
+    let number = 6;
+    if (width <= 380) {
+      number = 3;
+    }
+    if (width > 380 && width <= 500) {
+      number = 4;
+    }
+    if (width > 500 && width <= 770) {
       number = 5;
     }
-    if (width > 650) {
+    if (width > 770) {
       number = 6;
     }
     this.setState({ amountOfProduct: number });

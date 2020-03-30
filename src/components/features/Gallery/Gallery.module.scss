@@ -149,7 +149,7 @@
         }
     }  
     .gallery{
-        width: 75px;
+        width: 74px;
         height: 70px;
         display: flex;
         flex-wrap: nowrap;
@@ -212,7 +212,7 @@
     width: 580px;
     img {
         width: 100%;
-        height: 590px;
+        height: 580px;
         object-fit: cover;
     }
     .textBox {
@@ -263,20 +263,109 @@
         z-index: 99;
     }
 }
-
-@media screen and (max-width: 767px) {
-    .offer {
-        margin-top: 25px;
-       width: 100vw;
-       img{
-           max-width: 382px;
-           margin-left: -5px;
+@media (min-width: 768px) and (max-width: 1224px)  {
+    .arrows{
+        .gallery{
+            width: 82px;
+            img{
+                margin-left: 8px;
+                width: 100%;
+            }
+        }
        }
+    .offer, content {
+    width: 450px;
     }
-    .actions{
+    .offer {
+        img {
+            width: 100%;
+            height: 623px;
+            object-fit: cover;
+        }
+    }
+    .navBar {
+        .list { 
+            >li{        
+            flex:50%;
+            border-bottom: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 850px)  {
+    .offer, content {
+        width: 360px;
+        }
+    .arrows{
+        .gallery{ 
+            img{
+                margin-left: 6px!important;
+            }
+        }
+    }
+}
+@media (min-width: 500px) and (max-width: 768px)  {
+
+     .arrows{
+        .gallery{ 
+            width: 81px;
+            img{
+                width: 100%;
+                margin-left: 3px;
+            }
+        }
+       }
+}
+@media (min-width: 380px) and (max-width: 500px){
+   
+    .arrows{
+        .gallery{
+            img{
+                margin-left: 4px;
+            }
+        }
+    }
+}
+
+@media (min-width: 322px) and (max-width: 380px) {
+    .offer {
+        display:none!important;
+     }
+
+    .arrows{
+        .gallery{
+            width: 83px;
+            img{
+                width: 100%;
+                margin-left: 6px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 321px) {
+    .offer {
+        display:none!important;
+     }
+
+    .arrows{
+        .gallery{
+            width: 79px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px)  {
+    .offer {
+        display:none;
+     }
+     .actions{
         bottom: 40%;
     }
-    .productInfo {
+    .productInfo{
         bottom: 7px;
         right: 7px;
         .frame{
@@ -288,10 +377,12 @@
             height: 5rem;         
         }
     }
-    .list { 
-        >li{        
-         flex:50%!important;
+    .navBar {
+        .list { 
+            >li{        
+            flex:50%;
+            border-bottom: none;
+            }
         }
     }
 }
-    
