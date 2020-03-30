@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-//import { Swipeable } from 'react-swipeable';
 import Swipe from '../../common/Swipe/Swipe';
 // import CompareBox from '../CompareBox/CompareBox';
 

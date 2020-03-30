@@ -37,6 +37,53 @@
   }
 }
 
+.outlineTwo {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $button-outline;
+  color: $button-outline;
+  font-size: 13px;
+  line-height: 22px;
+  transition: $transition;
+
+  &:not(.noHover):hover {
+    border: 1px solid $primary;
+    background: none;
+    color: $primary;
+    text-decoration: none;
+  }
+  :hover span{
+    display: block;
+  }
+}
+.green {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid $button-outline;
+  color: $button-outline;
+  font-size: 13px;
+  line-height: 22px;
+  transition: $transition;
+  border-radius: 1px;
+  background-color: $green!important;
+  color: $light-color;
+  &:not(.noHover):hover {
+    color: $green;
+    background-color: $light-color!important;
+    font-weight: 500;
+  }
+}
+.arrow {
+  @extend .main;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 10px;
+  font-weight: 400;
+  svg{
+    align-self: center;
+  }
+}
+
 .active {
   display: inline-block;
   padding: 5px 10px;
