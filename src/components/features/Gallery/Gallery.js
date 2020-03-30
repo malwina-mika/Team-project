@@ -37,18 +37,17 @@ class Gallery extends React.Component {
   handleAmountOfImg = () => {
     const width = window.innerWidth;
     let number = 6;
-    if (width <= 380) {
-      number = 3;
-    }
-    if (width > 380 && width <= 500) {
-      number = 4;
-    }
-    if (width > 500 && width <= 770) {
+    if (width > 500 && width <= 1024) {
       number = 5;
     }
-    if (width > 770) {
+    if (width > 1024) {
       number = 6;
     }
+
+    if (width <= 850) {
+      number = 4;
+    }
+
     this.setState({ amountOfProduct: number });
   };
 
@@ -182,7 +181,9 @@ class Gallery extends React.Component {
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                   </Button>
                   <div className={'col-10 '}>
-                    <div className={'row ' + styles.gallery}>{gallery}</div>
+                    <div className={'d-flex justify-content-around ' + styles.gallery}>
+                      {gallery}
+                    </div>
                   </div>
                   <Button className='col-1 ' variant='arrow'>
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>

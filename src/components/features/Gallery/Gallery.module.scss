@@ -149,15 +149,11 @@
         }
     }  
     .gallery{
-        width: 74px;
-        height: 70px;
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;   
+        overflow: hidden;
        img{
-            padding-left: 5px;
-            width: 100%;
-            height: 100%;
+            padding: 0 2px;
+            width: 70px;
+            height: 70px;
             object-fit: cover;
             opacity: 0.5;
             &:hover{
@@ -264,15 +260,7 @@
     }
 }
 @media (min-width: 768px) and (max-width: 1224px)  {
-    .arrows{
-        .gallery{
-            width: 82px;
-            img{
-                margin-left: 8px;
-                width: 100%;
-            }
-        }
-       }
+
     .offer, content {
     width: 450px;
     }
@@ -293,67 +281,40 @@
     }
 }
 
+@media (min-width: 1023px) and (max-width: 1224px)  {
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 100px;                
+                }
+        }
+    }
+
+}
 @media (min-width: 768px) and (max-width: 850px)  {
     .offer, content {
         width: 360px;
         }
-    .arrows{
-        .gallery{ 
+    .arrows {
+        .gallery{
+            
             img{
-                margin-left: 6px!important;
-            }
+                width: 90px;                
+                }
         }
     }
-}
-@media (min-width: 500px) and (max-width: 768px)  {
 
-     .arrows{
-        .gallery{ 
-            width: 81px;
-            img{
-                width: 100%;
-                margin-left: 3px;
-            }
-        }
-       }
 }
-@media (min-width: 380px) and (max-width: 500px){
-   
-    .arrows{
+
+
+@media (min-width: 567px) and (max-width: 736px)  {
+    .arrows {
         .gallery{
+            
             img{
-                margin-left: 4px;
-            }
-        }
-    }
-}
-
-@media (min-width: 322px) and (max-width: 380px) {
-    .offer {
-        display:none!important;
-     }
-
-    .arrows{
-        .gallery{
-            width: 83px;
-            img{
-                width: 100%;
-                margin-left: 6px;
-            }
-        }
-    }
-}
-@media screen and (max-width: 321px) {
-    .offer {
-        display:none!important;
-     }
-
-    .arrows{
-        .gallery{
-            width: 79px;
-            img{
-                width: 100%;
-            }
+                width: 90px;                
+                }
         }
     }
 }
@@ -383,6 +344,26 @@
             flex:50%;
             border-bottom: none;
             }
+        }
+    }
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 80px;                
+                }
+        }
+    }
+}
+
+@media (min-width: 374px) and (max-width: 420px)  {
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 90px;  
+                padding: 0 9px;              
+                }
         }
     }
 }
