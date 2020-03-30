@@ -27,7 +27,6 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       image: '/images/furniture-2.jpg',
-      compare: true,
       favorite: false,
     },
     {
@@ -42,7 +41,6 @@ const initialState = {
       newFurniture: true,
       image: '/images/furniture-3.jpg',
       favorite: false,
-      compare: true,
     },
     {
       id: 'aenean-ru-bristique-4',

@@ -11,9 +11,11 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
 export const ADD_FAVORITE = createActionName('ADD_FAVORITE');
+export const COMPARE = createActionName('COMPARE');
 
 // action creators
 export const handleFavoriteProducts = id => ({ id, type: ADD_FAVORITE });
+export const actionCompareProducts = id => ({ id, type: COMPARE });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -22,6 +24,13 @@ export default function reducer(statePart = [], action = {}) {
       return statePart.map(item => {
         if (item.id === action.id) {
           item.favorite = !item.favorite;
+        }
+        return item;
+      });
+    case COMPARE:
+      return statePart.map(item => {
+        if (item.id === action.id) {
+          item.addCompare = !item.addCompare;
         }
         return item;
       });
