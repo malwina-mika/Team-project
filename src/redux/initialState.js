@@ -312,7 +312,84 @@ const initialState = {
     '<h3><span>Office</span>Chair</h3><h3>collection</h3><h3>$ 200.00</h3>',
   promotionRightBoxTwo:
     '<h3><span>Special</span> collection</h3><h3>save up 45% of furniture</h3>',
+
+  brands: [
+    {
+      index: 1,
+      id: 'brand-1',
+      name: 'Brand',
+      image: '/images/brands/brand-1.jpg',
+    },
+    {
+      index: 2,
+      id: 'brand-2',
+      name: 'Brand',
+      image: '/images/brands/brand-2.jpg',
+    },
+    {
+      index: 3,
+      id: 'brand-3',
+      name: 'Brand',
+      image: '/images/brands/brand-3.jpg',
+    },
+    {
+      index: 4,
+      id: 'brand-4',
+      name: 'Brand',
+      image: '/images/brands/brand-4.jpg',
+    },
+    {
+      index: 5,
+      id: 'brand-5',
+      name: 'Brand',
+      image: '/images/brands/brand-5.jpg',
+    },
+    {
+      index: 6,
+      id: 'brand-6',
+      name: 'Brand',
+      image: '/images/brands/brand-1.jpg',
+    },
+    {
+      index: 7,
+      id: 'brand-7',
+      name: 'Brand',
+      image: '/images/brands/brand-2.jpg',
+    },
+    {
+      index: 8,
+      id: 'brand-8',
+      name: 'Brand',
+      image: '/images/brands/brand-3.jpg',
+    },
+    {
+      index: 9,
+      id: 'brand-9',
+      name: 'Brand',
+      image: '/images/brands/brand-4.jpg',
+    },
+    {
+      index: 10,
+      id: 'brand-10',
+      name: 'Brand',
+      image: '/images/brands/brand-5.jpg',
+    },
+    {
+      index: 11,
+      id: 'brand-11',
+      name: 'Brand',
+      image: '/images/brands/brand-1.jpg',
+    },
+    {
+      index: 12,
+      id: 'brand-12',
+      name: 'Brand',
+      image: '/images/brands/brand-2.jpg',
+    },
+  ],
+
   galleryRightBox: '<h6>from<span>$50.80</span></h6><h2>Bedroom Bed</h2>',
+
 };
 
 export default initialState;
