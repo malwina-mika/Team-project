@@ -78,6 +78,8 @@ class NewFurniture extends React.Component {
     const { activeCategory, activePage, deviceType, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
+    const compareProducts = products.filter(item => item.addCompare === true);
+
     const pagesCount =
       deviceType === 'mobile'
         ? Math.ceil(categoryProducts.length / 2)
@@ -151,9 +153,13 @@ class NewFurniture extends React.Component {
                     <ProductBox
                       {...item}
                       onclick={e => this.handleFavoriteProducts(e, item.id)}
-                      compareProduct={e => {
-                        this.handleCompareProducts(e, item.id);
-                      }}
+                      compareProduct={
+                        compareProducts.length < 4
+                          ? e => {
+                              this.handleCompareProducts(e, item.id);
+                            }
+                          : null
+                      }
                       isFavorite={item.favorite}
                       isCompare={item.addCompare}
                     />

@@ -20,7 +20,7 @@ class CompareBox extends React.Component {
     const ifCompareEmpty = compareProducts.length > 0;
 
     return (
-      <div className={ifCompareEmpty ? styles.wrapper : ''}>
+      <div className={ifCompareEmpty ? styles.wrapper + ' container' : ''}>
         {products
           .filter(item => item.addCompare === true)
           .map(item => (

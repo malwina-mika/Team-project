@@ -1,15 +1,16 @@
 @import '../../../styles/settings.scss';
 
 .wrapper {
-    width: 90vw;
     height: 25vh;
     background: $light-color;
     position: fixed;
-    left: 5vw;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 5vh;
     z-index: 100;
     display: flex;
     border: 1px solid $product-box-border;
+    padding: 0;
 
     .imageBox {
         position: relative;
@@ -45,7 +46,6 @@
 
         &:hover a {
             visibility: visible;
-            // background: none;
         }
     }
 

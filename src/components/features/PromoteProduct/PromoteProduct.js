@@ -20,6 +20,7 @@ class PromoteProduct extends React.Component {
     // const { id } = this.state;
     const promote = products.filter(item => item.promote === true);
     const offer = offers.filter(item => item.active === true);
+    const compareProducts = products.filter(item => item.addCompare === true);
 
     const dots = [];
     for (let i = 0; i < 3; i++) {
@@ -41,9 +42,13 @@ class PromoteProduct extends React.Component {
                   promo=''
                   {...item}
                   onclick={e => this.handleFavoriteProducts(e, item.id)}
-                  compareProduct={e => {
-                    this.handleCompareProducts(e, item.id);
-                  }}
+                  compareProduct={
+                    compareProducts.length < 4
+                      ? e => {
+                          this.handleCompareProducts(e, item.id);
+                        }
+                      : null
+                  }
                   isFavorite={item.favorite}
                   isCompare={item.addCompare}
                 ></HotDealBox>
