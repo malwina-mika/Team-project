@@ -1,4 +1,9 @@
 @import '../../../styles/settings.scss';
+@import '../../common/Button/Button.module.scss';
+
+.noShow {
+    display: none
+}
 
 .wrapper {
     height: 25vh;
@@ -50,11 +55,12 @@
     }
 
     .compareButton {
+        @extend .outline;
+        display: block;
         flex: .2;
         text-align: center;
         padding: 10px;
         margin: auto 10px auto auto ;
-        display: block;
         transition: 0s;
     }
 }
