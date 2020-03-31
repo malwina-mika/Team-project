@@ -35,7 +35,7 @@ class PromoteProduct extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className={'col-4'}>
+            <div className='d-none d-md-block col-md-4'>
               {promote.map(item => (
                 <HotDealBox
                   key={item.id}
@@ -54,7 +54,7 @@ class PromoteProduct extends React.Component {
                 ></HotDealBox>
               ))}
             </div>
-            <div className={'col-8'}>
+            <div className='col-12 col-md-8'>
               {offer.map(item => (
                 <OfferBox key={item.id} {...item}></OfferBox>
               ))}

@@ -11,14 +11,12 @@ import Button from '../Button/Button';
 const ProductBox = ({ name, title, subtitle, image }) => {
   return (
     <div className={styles.offer}>
-      <div className={styles.img}>
+      <div className={styles.image}>
         <img src={image} alt={name}></img>
       </div>
       <div className={styles.slogan}>
         <div className={styles.textBox}>
-          <h2>
-            {ReactHtmlParser(title)} {/* Indoor <span>furniture</span> */}
-          </h2>
+          <h2>{ReactHtmlParser(title)}</h2>
           <p>{subtitle}</p>
         </div>
         <Button variant='outline'>Shop now</Button>
