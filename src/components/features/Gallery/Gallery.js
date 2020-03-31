@@ -17,6 +17,7 @@ import ReactTooltip from 'react-tooltip';
 class Gallery extends React.Component {
   state = {
     activeProduct: 12,
+    amountOfProduct: 7,
   };
 
   handleFavoriteProducts(event, itemId) {
@@ -24,8 +25,39 @@ class Gallery extends React.Component {
     this.props.handleFavoriteProducts(itemId);
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.handleAmountOfImg);
+    this.handleAmountOfImg();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleAmountOfImg);
+  }
+
+  handleAmountOfImg = () => {
+    const width = window.innerWidth;
+    let number = 6;
+    if (width > 500 && width <= 1024) {
+      number = 5;
+    }
+    if (width > 1024) {
+      number = 6;
+    }
+
+    if (width <= 850) {
+      number = 4;
+    }
+
+    this.setState({ amountOfProduct: number });
+  };
+
+  handlePageChange(newPage) {
+    setTimeout(() => {
+      this.setState({ activePage: newPage });
+    }, 1000);
+  }
   render() {
-    const { activeProduct } = this.state;
+    const { activeProduct, amountOfProduct } = this.state;
     const { products, galleryRightBox } = this.props;
     const product = products[activeProduct];
 
@@ -39,7 +71,7 @@ class Gallery extends React.Component {
       products[15].image,
       products[16].image,
     ];
-    for (let i = 0; i < mockupData.length; i++) {
+    for (let i = 0; i < amountOfProduct; i++) {
       gallery.push(
         <img
           key={'gallery' + i}
@@ -54,7 +86,7 @@ class Gallery extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-6 '>
+            <div className='col-12 col-md-6 '>
               <div className={styles.navBar}>
                 <div className={styles.heading}>
                   <h3>FURNITURE GALLERY</h3>
@@ -149,7 +181,9 @@ class Gallery extends React.Component {
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                   </Button>
                   <div className={'col-10 '}>
-                    <div className={'row ' + styles.gallery}>{gallery}</div>
+                    <div className={'d-flex justify-content-around ' + styles.gallery}>
+                      {gallery}
+                    </div>
                   </div>
                   <Button className='col-1 ' variant='arrow'>
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
@@ -157,7 +191,7 @@ class Gallery extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='col-6 '>
+            <div className='col-12 col-md-6 '>
               <div className={styles.offer}>
                 <div className={styles.img}>
                   <img src={products[14].image} alt=''></img>

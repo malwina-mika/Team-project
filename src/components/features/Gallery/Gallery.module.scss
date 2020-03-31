@@ -3,7 +3,7 @@
 .root {
     padding: 5rem 0 0 0;
     margin-bottom: 5rem;
-    height: 650px; 
+    display: block;
 }
     
 .navBar {   
@@ -138,6 +138,7 @@
     justify-content: center;
     align-content: center;
     flex-wrap: nowrap;
+    overflow: hidden;
     > a{     
         display: flex;
         height: 70px;
@@ -148,15 +149,11 @@
         }
     }  
     .gallery{
-        width: 70px;
-        height: 70px;
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;   
+        overflow: hidden;
        img{
-            padding-left: 5px;
-            width: 100%;
-            height: 100%;
+            padding: 0 2px;
+            width: 70px;
+            height: 70px;
             object-fit: cover;
             opacity: 0.5;
             &:hover{
@@ -173,7 +170,7 @@
 .actions{
     position: absolute;
     bottom: 30%;
-    left: 0;
+    left: 10px;
     color: $light-color;
     text-transform: uppercase;
     z-index: 99;
@@ -188,9 +185,8 @@
     }
 }
 
-.offer, .content {
+.content {
     position: relative;
-   
     img {
         position: absolute;
         top: 0;
@@ -207,8 +203,14 @@
 }
 
 .offer {
-    height: 585px;
     padding: 5px;
+    position: relative;
+    width: 580px;
+    img {
+        width: 100%;
+        height: 580px;
+        object-fit: cover;
+    }
     .textBox {
         position: absolute;
         top: 30%;
@@ -257,5 +259,111 @@
         z-index: 99;
     }
 }
+@media (min-width: 768px) and (max-width: 1224px)  {
 
-    
+    .offer, content {
+    width: 450px;
+    }
+    .offer {
+        img {
+            width: 100%;
+            height: 623px;
+            object-fit: cover;
+        }
+    }
+    .navBar {
+        .list { 
+            >li{        
+            flex:50%;
+            border-bottom: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 1023px) and (max-width: 1224px)  {
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 100px;                
+                }
+        }
+    }
+
+}
+@media (min-width: 768px) and (max-width: 850px)  {
+    .offer, content {
+        width: 360px;
+        }
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 90px;                
+                }
+        }
+    }
+
+}
+
+
+@media (min-width: 567px) and (max-width: 736px)  {
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 90px;                
+                }
+        }
+    }
+}
+
+@media (max-width: 767px)  {
+    .offer {
+        display:none;
+     }
+     .actions{
+        bottom: 40%;
+    }
+    .productInfo{
+        bottom: 7px;
+        right: 7px;
+        .frame{
+            width: 220px;
+            text-align: center;
+        }
+        .price{
+            width: 5rem;
+            height: 5rem;         
+        }
+    }
+    .navBar {
+        .list { 
+            >li{        
+            flex:50%;
+            border-bottom: none;
+            }
+        }
+    }
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 80px;                
+                }
+        }
+    }
+}
+
+@media (min-width: 374px) and (max-width: 420px)  {
+    .arrows {
+        .gallery{
+            
+            img{
+                width: 90px;  
+                padding: 0 9px;              
+                }
+        }
+    }
+}
