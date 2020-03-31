@@ -5,9 +5,42 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 class Brands extends React.Component {
+  state = {
+    brandsOnPage: 6,
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleAmountOfBrands);
+    this.handleAmountOfBrands();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleAmountOfBrands);
+  }
+
+  handleAmountOfBrands = () => {
+    const width = window.innerWidth;
+    let number = 6;
+    if (width >= 992 && width <= 1184) {
+      number = 5;
+    }
+    if (width >= 768 && width < 992) {
+      number = 4;
+    }
+    if (width >= 576 && width <= 768) {
+      number = 3;
+    }
+
+    if (width < 576) {
+      number = 2;
+    }
+
+    this.setState({ brandsOnPage: number });
+  };
+
   render() {
     const { brands } = this.props;
-    const brandsOnPage = 6;
+    const { brandsOnPage } = this.state;
 
     return (
       <div className={styles.root}>
